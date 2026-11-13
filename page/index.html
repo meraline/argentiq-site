@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <title>Авторизация hh.ru</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 60px auto; padding: 0 20px; color: #222; line-height: 1.5; }
+    code { background: #f2f2f2; padding: 2px 6px; border-radius: 4px; word-break: break-all; }
+    .ok { color: #1a7f37; }
+    .err { color: #b42318; }
+  </style>
+</head>
+<body>
+  <h1>Авторизация hh.ru</h1>
+  <div id="result">Обработка ответа...</div>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var code = params.get('code');
+      var error = params.get('error');
+      var errorDescription = params.get('error_description');
+      var result = document.getElementById('result');
+
+      if (code) {
+        result.innerHTML =
+          '<p class="ok">Доступ разрешён.</p>' +
+          '<p>Код авторизации:</p>' +
+          '<p><code id="code"></code></p>' +
+          '<p>Скопируйте его и используйте для получения токена на сервере. Код одноразовый.</p>';
+        document.getElementById('code').textContent = code;
+      } else if (error) {
+        result.innerHTML =
+          '<p class="err">Доступ не предоставлен.</p>' +
+          '<p>Причина: <code id="err"></code></p>';
+        document.getElementById('err').textContent =
+          errorDescription ? error + ' — ' + errorDescription : error;
+      } else {
+        result.innerHTML = '<p class="err">Параметры авторизации не найдены. Откройте страницу через авторизацию hh.ru.</p>';
+      }
+    })();
+  </script>
+</body>
+</html>
