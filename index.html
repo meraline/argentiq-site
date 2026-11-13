@@ -31,16 +31,66 @@
 
   <main class="wrap">
     <section class="hero">
+      <span class="eyebrow">Студия автоматизации · Сочи и удалённо</span>
       <h1>Автоматизируем рутину между 1С, CRM и таблицами</h1>
       <p>Чтобы сотрудники перестали переносить данные руками, а руководитель видел цифры на дашборде, а не в пятничной переписке. ИИ подключаем там, где он правда экономит время, и не ради моды.</p>
-      <p>1С для нас источник данных: мы не переписываем вашу конфигурацию, а забираем данные, собираем отчёты и возвращаем результат обратно. Если нужна доработка самой 1С или задача шире, собираем команду под проект.</p>
-      <p>Работаем из Сочи, по России удалённо.</p>
+      <div class="hero-actions">
+        <a class="btn" href="/obsledovanie/">Начать с обследования</a>
+        <a class="btn btn-ghost" href="/keysy/">Смотреть кейсы</a>
+      </div>
+      <p class="hero-meta">1С для нас источник данных: мы не переписываем вашу конфигурацию, а забираем данные, собираем отчёты и возвращаем результат обратно. Если нужна доработка самой 1С или задача шире, собираем команду под проект.</p>
+
+      <figure class="flow">
+        <svg viewBox="0 0 690 270" role="img" aria-labelledby="flow-title flow-desc">
+          <title id="flow-title">Как данные идут от ваших систем до решений</title>
+          <desc id="flow-desc">Данные из 1С, CRM и таблиц проходят через обмен и ETL, попадают в хранилище и показываются в дашбордах или используются ИИ по документам.</desc>
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path class="arrow" d="M0 0 L10 5 L0 10 z"/>
+            </marker>
+          </defs>
+
+          <!-- Источники -->
+          <rect class="node" x="10" y="20" width="130" height="48" rx="10"/>
+          <text x="75" y="42">1С</text><text class="sub" x="75" y="58">OData, API</text>
+          <rect class="node" x="10" y="111" width="130" height="48" rx="10"/>
+          <text x="75" y="133">CRM</text><text class="sub" x="75" y="149">и внешние сервисы</text>
+          <rect class="node" x="10" y="202" width="130" height="48" rx="10"/>
+          <text x="75" y="224">Таблицы</text><text class="sub" x="75" y="240">Excel, Google</text>
+
+          <!-- Связи источников с ETL -->
+          <path class="edge" d="M140 44 C170 44 170 135 200 135" marker-end="url(#arr)"/>
+          <path class="edge" d="M140 135 H200" marker-end="url(#arr)"/>
+          <path class="edge" d="M140 226 C170 226 170 135 200 135" marker-end="url(#arr)"/>
+
+          <!-- ETL -->
+          <rect class="node-core" x="200" y="95" width="120" height="80" rx="12"/>
+          <text x="260" y="129">Обмен и ETL</text>
+          <text class="sub" x="260" y="149">NiFi, Airflow</text>
+          <path class="edge" d="M320 135 H375" marker-end="url(#arr)"/>
+
+          <!-- Хранилище -->
+          <rect class="node-core" x="375" y="95" width="130" height="80" rx="12"/>
+          <text x="440" y="122">Хранилище</text>
+          <text class="sub" x="440" y="141">PostgreSQL</text>
+          <text class="sub" x="440" y="157">ClickHouse</text>
+
+          <!-- Результаты -->
+          <path class="edge" d="M505 135 C525 135 525 74 545 74" marker-end="url(#arr)"/>
+          <path class="edge" d="M505 135 C525 135 525 196 545 196" marker-end="url(#arr)"/>
+          <rect class="node" x="545" y="50" width="135" height="48" rx="10"/>
+          <text x="612" y="72">Дашборды</text><text class="sub" x="612" y="88">Superset</text>
+          <rect class="node" x="545" y="172" width="135" height="48" rx="10"/>
+          <text x="612" y="194">ИИ по документам</text><text class="sub" x="612" y="210">локально, RAG</text>
+        </svg>
+        <figcaption>Так данные идут от ваших систем до решений. Мы собираем эту цепочку целиком или берём одно звено.</figcaption>
+      </figure>
     </section>
 
     <section id="routes">
       <h2>Что вам нужно?</h2>
       <div class="grid">
-        <a class="card" href="/obsledovanie/">
+        <a class="card card-primary" href="/obsledovanie/">
           <h3>Я владелец бизнеса</h3>
           <p>Люди тратят часы на ручную работу, а где именно теряется время, непонятно. Начнём с короткого обследования.</p>
           <span class="more">Обследование процессов →</span>
@@ -63,6 +113,39 @@
       </div>
     </section>
 
+    <section id="how">
+      <h2>Как это работает</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="step-num">1</span>
+          <h3>Обследование</h3>
+          <p>Разбираем, где данные переписывают вручную и что действительно стоит автоматизировать.</p>
+        </div>
+        <div class="card">
+          <span class="step-num">2</span>
+          <h3>Интеграция</h3>
+          <p>Подключаем 1С, CRM и таблицы, настраиваем обмен и следим, чтобы ошибки не терялись.</p>
+        </div>
+        <div class="card">
+          <span class="step-num">3</span>
+          <h3>Хранилище и отчёты</h3>
+          <p>Собираем данные в одном месте, строим дашборды для руководства и подразделений.</p>
+        </div>
+        <div class="card">
+          <span class="step-num">4</span>
+          <h3>Сопровождение</h3>
+          <p>Мониторинг, резервные копии, разбор сбоев. Передаём схемы и инструкции, чтобы всё было у вас.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>С чем работаем</h2>
+      <ul class="stack">
+        <li>1С (OData, API)</li><li>Apache NiFi</li><li>Apache Airflow</li><li>PostgreSQL</li><li>ClickHouse</li><li>Apache Superset</li><li>Docker</li><li>GitLab CI</li><li>Grafana</li><li>Python</li><li>FastAPI</li><li>Локальные LLM и RAG</li>
+      </ul>
+    </section>
+
     <section>
       <h2>Команда под проект</h2>
       <p>Мы давно работаем вместе: специалист по 1С, DevOps-инженер, ML-инженер, фронтенд-разработчик, аналитик и руководитель проекта. Состав собираем под вашу задачу, чтобы вы не платили за лишних людей. Договор один, ответственность одна.</p>
@@ -81,9 +164,15 @@
       <p>Если узнали своё, посмотрите <a href="/keysy/">кейсы</a>: там описаны именно такие случаи.</p>
     </section>
 
+    <section class="cta-band">
+      <h2>Не знаете, с чего начать?</h2>
+      <p>Начните с обследования: за несколько дней получите карту процессов и список решений с оценкой, без обязательств продолжать.</p>
+      <a class="btn" href="/obsledovanie/">Узнать про обследование</a>
+    </section>
+
     <section id="contacts" class="contacts">
       <h2>Контакты</h2>
-      <!-- TODO: подставить почту на домене и Telegram после согласования -->
+      <!-- TODO: подставить почту на домене и Telegram после согласования; затем сделать главную кнопку «Обсудить задачу» -->
       <p>Контакты появятся здесь в ближайшее время.</p>
     </section>
   </main>
